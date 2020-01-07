@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:io';
 
 import 'Inicio/InicioHomeScreen.dart';
-import 'Información/InformacionScreen.dart';
+import 'Informacion/InformacionScreen.dart';
 
 void main() => runApp(MyApp());
 
