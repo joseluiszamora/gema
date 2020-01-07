@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'model/noticia.dart';
 
 class NoticiasScreenPage extends StatefulWidget {
   NoticiasScreenPage({Key key}) : super(key: key);
@@ -15,18 +16,49 @@ class _NoticiasScreenPageState extends State<NoticiasScreenPage> with SingleTick
       home: Scaffold(
         backgroundColor: Color(0xFFFFFFFF),
         appBar: AppBar(
-          title: const Text('Noticias'),
+          automaticallyImplyLeading: true,
+          title: Text('Noticias'),
           backgroundColor: Color(0xFF6ca125),
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () { Scaffold.of(context).openDrawer(); },
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip);
-            })
-        ),
-        body: Text('000000000')
+          leading: IconButton(icon:Icon(Icons.arrow_back),
+            onPressed:() => Navigator.pop(context, false))),
+        body: Column(
+          children: <Widget>[
+            SizedBox(height: 10.0),
+            Container(
+              height: 600.0,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: Noticia.noticiasList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return makeCard(Noticia.noticiasList[index]);
+                }))
+          ])
       )
+    );
+  }
+
+  Widget makeCard(Noticia noticia) {
+    return Card(
+      elevation: 8.0,
+      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      child: Container(
+        child: makeListTile(noticia)));
+  }
+
+  Widget makeListTile(Noticia noticia) {
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 10.0),
+        Text(
+          noticia.titulo,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18.0)),
+        SizedBox(height: 10.0),
+        Image.asset('assets/noticias/auditores.jpg'),
+        SizedBox(height: 10.0),
+        Text(noticia.descripcion),
+        SizedBox(height: 10.0)
+      ],
     );
   }
 }

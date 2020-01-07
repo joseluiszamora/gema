@@ -3,9 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'delayed_animation.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'package:gema/Informacion/InformacionScreen.dart';
-import 'package:gema/Noticias/NoticiasScreen.dart';
+import 'package:nice_button/nice_button.dart';
 
 class InicioHomeScreenPage extends StatefulWidget {
   InicioHomeScreenPage({Key key}) : super(key: key);
@@ -16,28 +14,11 @@ class InicioHomeScreenPage extends StatefulWidget {
 
 class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with SingleTickerProviderStateMixin{
   final int delayedAmount = 500;
-  double _scale;
-  AnimationController _controller;
-  @override
-  void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(
-        milliseconds: 200,
-      ),
-      lowerBound: 0.0,
-      upperBound: 0.1,
-    )..addListener(() {
-        setState(() {});
-      });
-    super.initState();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    //SystemChrome.setEnabledSystemUIOverlays([]);
     final color = Colors.white;
-    _scale = 1 - _controller.value;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -66,123 +47,67 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
                             radius: 50.0,
                           ))
                       ),
-                      DelayedAnimation(
-                        child: Text(
-                          "Frente GEMA",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 25.0,
-                            fontWeight: FontWeight.bold,
-                            color: color)),
-                        delay: delayedAmount + 5000,
-                      )
+                      Text(
+                        "Frente GEMA",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold,
+                          color: color))
                     ],
-                  )
-                ),
+                  ),
+                  delay: delayedAmount + 100),
+
                 SizedBox( height: 50.0 ),
                 
                 DelayedAnimation(
-                  child: GestureDetector(
-                    //Navigator.of(context).push(new SecondPageRoute());
-                    //onTap: Navigator.of(context).push(new SecondPageRoute()),
-                    // onTapDown: _onTapDown,
-                    // onTapUp: _onTapUp,
-                    child: Transform.scale(
-                      scale: _scale,
-                      child: _animatedButtonUI('Inicio'),
-                    ),
-                  ),
-                  delay: delayedAmount + 4000
-                ),
-                
-                SizedBox( height: 15.0 ),
-                
-                DelayedAnimation(
-                  child: GestureDetector(
-                    onTapDown: _onTapDown,
-                    onTapUp: _onTapUp,
-                    child: Transform.scale(
-                      scale: _scale,
-                      child: _animatedButtonUI('Noticias'),
-                    ),
-                  ),
-                  delay: delayedAmount + 4000
-                ),
-                
-                SizedBox( height: 15.0 ),
-                
-                DelayedAnimation(
-                  child: GestureDetector(
-                    onTapDown: _onTapDown,
-                    onTapUp: _onTapUp,
-                    child: Transform.scale(
-                      scale: _scale,
-                      child: _animatedButtonUI('Documentos'),
-                    ),
-                  ),
-                  delay: delayedAmount + 4000
-                ),
+                  child: Column(
+                    children: <Widget>[
+                      NiceButton(
+                        radius: 40,
+                        padding: const EdgeInsets.all(15),
+                        text: "Inicio",
+                        textColor: Color(0xFF6ca125),
+                        background: Colors.white,
+                        onPressed: () { Navigator.pushNamed(context, '/informacion'); }),
+                      
+                      SizedBox( height: 15.0 ),
 
-                SizedBox( height: 15.0 ),
-                
-                DelayedAnimation(
-                  child: GestureDetector(
-                    onTapDown: _onTapDown,
-                    onTapUp: _onTapUp,
-                    child: Transform.scale(
-                      scale: _scale,
-                      child: _animatedButtonUI('Nosotros'),
-                    ),
+                      NiceButton(
+                        radius: 40,
+                        padding: const EdgeInsets.all(15),
+                        text: "Noticias",
+                        textColor: Color(0xFF6ca125),
+                        background: Colors.white,
+                        onPressed: () { Navigator.pushNamed(context, '/noticias'); }),
+                      
+                      SizedBox( height: 15.0 ),
+
+                      NiceButton(
+                        radius: 40,
+                        padding: const EdgeInsets.all(15),
+                        text: "Documentos",
+                        textColor: Color(0xFF6ca125),
+                        background: Colors.white,
+                        onPressed: () { Navigator.pushNamed(context, '/documentos'); }),
+                      
+                      SizedBox( height: 15.0 ),
+
+                      NiceButton(
+                        radius: 40,
+                        padding: const EdgeInsets.all(15),
+                        text: "Nosotros",
+                        textColor: Color(0xFF6ca125),
+                        background: Colors.white,
+                        onPressed: () { Navigator.pushNamed(context, '/nosotros'); })
+                    ]
                   ),
-                  delay: delayedAmount + 4000
+                  delay: delayedAmount + 1000
                 )
               ],
             ),
           )
         )
     );
-  }
-
-  Widget _animatedButtonUI (String title) {
-    return Container(
-      height: 60,
-      width: 270,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100.0),
-        color: Colors.white,
-      ),
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF6ca125),
-          )
-        )
-      )
-    );
-  }
-  
-  void _onTapDown(TapDownDetails details) {
-    _controller.forward();
-  }
-
-  void _onTapUp(TapUpDetails details) {
-    _controller.reverse();
-  }
-}
-
-
-
-
-class InformacionPageRoute extends CupertinoPageRoute {
-   InformacionPageRoute()
-      : super(builder: (BuildContext context) => new InformacionScreenPage());
-
-  @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    return new FadeTransition(opacity: animation, child: new InformacionScreenPage());
   }
 }

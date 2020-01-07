@@ -11,6 +11,7 @@ class InformacionScreenPage extends StatefulWidget {
 
 class _InformacionScreenPageState extends State<InformacionScreenPage> with SingleTickerProviderStateMixin{
   var carousel = [
+    '0_candidato.jpg', 
     '1_amistad.jpg', 
     '2_categoria_asociados.jpg', 
     '3_corrupcion.jpg', 
@@ -23,9 +24,6 @@ class _InformacionScreenPageState extends State<InformacionScreenPage> with Sing
     '10_que_me_ofrece.jpg' 
   ];
 
-  final List<String> entries = <String>['A', 'B', 'C', 'A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100, 600, 500, 100];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,16 +31,11 @@ class _InformacionScreenPageState extends State<InformacionScreenPage> with Sing
       home: Scaffold(
         backgroundColor: Color(0xFFFFFFFF),
         appBar: AppBar(
-          title: const Text('Inicio'),
+          automaticallyImplyLeading: true,
+          title: Text('Inicio'),
           backgroundColor: Color(0xFF6ca125),
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () { Scaffold.of(context).openDrawer(); },
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip);
-            })
-        ),
+          leading: IconButton(icon:Icon(Icons.arrow_back),
+            onPressed:() => Navigator.pop(context, false))),
         body: Column(
           children: <Widget>[
             CarouselSlider(
@@ -53,9 +46,6 @@ class _InformacionScreenPageState extends State<InformacionScreenPage> with Sing
                     return Container(
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      // decoration: BoxDecoration(
-                      //   color: Colors.amber
-                      // ),
                       child: Image.asset( 'assets/rrss/$i' ));
                   });
               }).toList()),
@@ -91,8 +81,7 @@ class _InformacionScreenPageState extends State<InformacionScreenPage> with Sing
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) => const Divider(),
-              ),
-            )
+              ))
           ]
         )
       )
