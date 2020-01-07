@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'delayed_animation.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'package:gema/Informacion/InformacionScreen.dart';
+import 'package:gema/Noticias/NoticiasScreen.dart';
 
 class InicioHomeScreenPage extends StatefulWidget {
   InicioHomeScreenPage({Key key}) : super(key: key);
@@ -79,8 +83,10 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
                 
                 DelayedAnimation(
                   child: GestureDetector(
-                    onTapDown: _onTapDown,
-                    onTapUp: _onTapUp,
+                    //Navigator.of(context).push(new SecondPageRoute());
+                    //onTap: Navigator.of(context).push(new SecondPageRoute()),
+                    // onTapDown: _onTapDown,
+                    // onTapUp: _onTapUp,
                     child: Transform.scale(
                       scale: _scale,
                       child: _animatedButtonUI('Inicio'),
@@ -164,5 +170,19 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
 
   void _onTapUp(TapUpDetails details) {
     _controller.reverse();
+  }
+}
+
+
+
+
+class InformacionPageRoute extends CupertinoPageRoute {
+   InformacionPageRoute()
+      : super(builder: (BuildContext context) => new InformacionScreenPage());
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return new FadeTransition(opacity: animation, child: new InformacionScreenPage());
   }
 }

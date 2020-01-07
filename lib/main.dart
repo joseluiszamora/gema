@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
 
 import 'Inicio/InicioHomeScreen.dart';
 import 'Informacion/InformacionScreen.dart';
+import 'Noticias/NoticiasScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,8 +28,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         platform: TargetPlatform.android,
       ),
-      //home: InicioHomeScreenPage(),
-      home: InformacionScreenPage(),
+      home: InicioHomeScreenPage(),
+      //home: NoticiasScreenPage()
     );
   }
 }
+
+// class InformacionPageRoute extends CupertinoPageRoute {
+//    InformacionPageRoute()
+//       : super(builder: (BuildContext context) => new InformacionScreenPage());
+
+//   @override
+//   Widget buildPage(BuildContext context, Animation<double> animation,
+//       Animation<double> secondaryAnimation) {
+//     return new FadeTransition(opacity: animation, child: new InformacionScreenPage());
+//   }
+// }
