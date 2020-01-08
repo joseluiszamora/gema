@@ -9,8 +9,6 @@ import 'Noticias/NoticiasScreen.dart';
 import 'Documentos/DocumentosScreen.dart';
 import 'Nosotros/NosotrosScreen.dart';
 
-import 'Documentos/PdfViewer.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -30,17 +28,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        platform: TargetPlatform.android,
-      ),
+        platform: TargetPlatform.android),
       initialRoute: '/',
       routes: {
         '/': (context) => InicioHomeScreenPage(),
         '/informacion': (context) => InformacionScreenPage(),
         '/noticias': (context) => NoticiasScreenPage(),
         '/documentos': (context) => DocumentosScreenPage(),
-        '/nosotros': (context) => NosotrosScreenPage(),
-      },
-      //home: PdfViewerPage(),
+        '/nosotros': (context) => NosotrosScreenPage()}
     );
   }
 }
