@@ -6,10 +6,6 @@ import 'dart:io';
 import 'Inicio/InicioHomeScreen.dart';
 import 'Informacion/InformacionScreen.dart';
 import 'Noticias/NoticiasScreen.dart';
-import 'Documentos/DocumentosScreen.dart';
-import 'Nosotros/NosotrosScreen.dart';
-
-import 'Documentos/PdfViewer.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +16,7 @@ class MyApp extends StatelessWidget {
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness:
-        Platform.isAndroid ? Brightness.dark : Brightness.light,
+          Platform.isAndroid ? Brightness.dark : Brightness.light,
       systemNavigationBarColor: Colors.white,
       systemNavigationBarDividerColor: Colors.grey,
       systemNavigationBarIconBrightness: Brightness.dark,
@@ -32,15 +28,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         platform: TargetPlatform.android,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => InicioHomeScreenPage(),
-        '/informacion': (context) => InformacionScreenPage(),
-        '/noticias': (context) => NoticiasScreenPage(),
-        '/documentos': (context) => DocumentosScreenPage(),
-        '/nosotros': (context) => NosotrosScreenPage(),
-      },
-      //home: PdfViewerPage(),
+      home: InicioHomeScreenPage(),
+      //home: NoticiasScreenPage()
     );
   }
 }
+
+// class InformacionPageRoute extends CupertinoPageRoute {
+//    InformacionPageRoute()
+//       : super(builder: (BuildContext context) => new InformacionScreenPage());
+
+//   @override
+//   Widget buildPage(BuildContext context, Animation<double> animation,
+//       Animation<double> secondaryAnimation) {
+//     return new FadeTransition(opacity: animation, child: new InformacionScreenPage());
+//   }
+// }

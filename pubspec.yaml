@@ -20,12 +20,9 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
-  path_provider: ^0.4.1
   font_awesome_flutter: ^8.5.0
   avatar_glow:
   carousel_slider:
-  nice_button: ^0.1.7
-  flutter_full_pdf_viewer: ^1.0.6
     
 dev_dependencies:
   flutter_test:
@@ -47,8 +44,6 @@ flutter:
   assets:
     - assets/images/
     - assets/rrss/
-    - assets/documentos/
-    - assets/noticias/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
