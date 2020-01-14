@@ -86,7 +86,7 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
                       NiceButton(
                         radius: 40,
                         padding: const EdgeInsets.all(15),
-                        text: "Documentos",
+                        text: "Leyes y Normativas",
                         textColor: Color(0xFF6ca125),
                         background: Colors.white,
                         onPressed: () { Navigator.pushNamed(context, '/documentos'); }),
@@ -96,7 +96,7 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
                       NiceButton(
                         radius: 40,
                         padding: const EdgeInsets.all(15),
-                        text: "Nosotros",
+                        text: "Quienes Somos",
                         textColor: Color(0xFF6ca125),
                         background: Colors.white,
                         onPressed: () { Navigator.pushNamed(context, '/nosotros'); })
