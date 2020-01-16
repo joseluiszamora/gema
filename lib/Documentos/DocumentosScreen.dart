@@ -30,7 +30,7 @@ class _DocumentosScreenPageState extends State<DocumentosScreenPage> with Single
           length: 3,
           child: Scaffold(
             appBar: AppBar(
-              title: Text('Documentos'),
+              title: Text('Leyes y Normativas'),
               automaticallyImplyLeading: true,
               backgroundColor: Color(0xFF6ca125),
               leading: IconButton(

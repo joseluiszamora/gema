@@ -54,9 +54,12 @@ class _NoticiasScreenPageState extends State<NoticiasScreenPage> with SingleTick
           noticia.titulo,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18.0)),
         SizedBox(height: 10.0),
-        Image.asset('assets/noticias/auditores.jpg'),
+        Image.asset(noticia.imagen),
         SizedBox(height: 10.0),
-        Text(noticia.descripcion),
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+          child: Text(noticia.descripcion),
+        ),
         SizedBox(height: 10.0)
       ],
     );
