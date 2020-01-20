@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'delayed_animation.dart';
 import 'package:flutter/cupertino.dart';
@@ -66,11 +65,11 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
                       NiceButton(
                         radius: 40,
                         padding: const EdgeInsets.all(15),
-                        text: "Inicio",
+                        text: "Quienes Somos",
                         textColor: Color(0xFF6ca125),
                         background: Colors.white,
-                        onPressed: () { Navigator.pushNamed(context, '/informacion'); }),
-                      
+                        onPressed: () { Navigator.pushNamed(context, '/nosotros'); }),
+                        
                       SizedBox( height: 15.0 ),
 
                       NiceButton(
@@ -81,25 +80,26 @@ class _InicioHomeScreenPageState extends State<InicioHomeScreenPage> with Single
                         background: Colors.white,
                         onPressed: () { Navigator.pushNamed(context, '/noticias'); }),
                       
+
                       SizedBox( height: 15.0 ),
 
                       NiceButton(
                         radius: 40,
                         padding: const EdgeInsets.all(15),
-                        text: "Leyes y Normativas",
+                        text: "Capacitacion",
                         textColor: Color(0xFF6ca125),
                         background: Colors.white,
-                        onPressed: () { Navigator.pushNamed(context, '/documentos'); }),
-                      
+                        onPressed: () { Navigator.pushNamed(context, '/informacion'); }),
+
                       SizedBox( height: 15.0 ),
 
                       NiceButton(
                         radius: 40,
                         padding: const EdgeInsets.all(15),
-                        text: "Quienes Somos",
+                        text: "Leyes y Normas",
                         textColor: Color(0xFF6ca125),
                         background: Colors.white,
-                        onPressed: () { Navigator.pushNamed(context, '/nosotros'); })
+                        onPressed: () { Navigator.pushNamed(context, '/documentos'); })
                     ]
                   ),
                   delay: delayedAmount + 1000

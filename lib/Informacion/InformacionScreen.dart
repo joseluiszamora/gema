@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'model/evento.dart';
 
 class InformacionScreenPage extends StatefulWidget {
@@ -10,11 +9,11 @@ class InformacionScreenPage extends StatefulWidget {
 }
 
 class _InformacionScreenPageState extends State<InformacionScreenPage> with SingleTickerProviderStateMixin{
-  var carousel = [
-    '1.jpg',
-    '2.jpg',
-    '3.jpg'
-  ];
+  // var carousel = [
+  //   '1.jpg',
+  //   'slide2.jpg',
+  //   'slide3.jpg'
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,26 +31,26 @@ class _InformacionScreenPageState extends State<InformacionScreenPage> with Sing
           children: <Widget>[
             SizedBox( height: 10.0 ),
             
-            CarouselSlider(
-              height: 350.0,
-              items: carousel.map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Image.asset( 'assets/slider/$i' ));
-                  });
-              }).toList()),
+            // CarouselSlider(
+            //   height: 350.0,
+            //   items: carousel.map((i) {
+            //     return Builder(
+            //       builder: (BuildContext context) {
+            //         return Container(
+            //           width: MediaQuery.of(context).size.width,
+            //           margin: EdgeInsets.symmetric(horizontal: 5.0),
+            //           child: Image.asset( 'assets/slider/$i' ));
+            //       });
+            //   }).toList()),
             
-            SizedBox( height: 5.0 ),
+            // SizedBox( height: 5.0 ),
 
             Text('Talleres de Capacitación', style: TextStyle(fontWeight: FontWeight.bold)),
 
             SizedBox( height: 5.0 ),
 
             Container(
-              height: 220.0,
+              height: MediaQuery.of(context).size.height-120,
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               child: ListView.separated(
                 padding: const EdgeInsets.all(8),
